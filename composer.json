@@ -1,5 +1,5 @@
 {
-  "name": "ytake/laravel-couchbase",
+  "name": "tuda/laravel-couchbase",
   "description": "Couchbase providers for Laravel",
   "keywords": [
     "laravel",
@@ -13,23 +13,27 @@
     {
       "name": "Yuuki Takezawa",
       "email": "yuuki.takezawa@comnect.jp.net"
+    },
+    {
+      "name": "TaeYoung Choi",
+      "email": "crazyluv1@gmail.com"
     }
   ],
   "license": "MIT",
   "require": {
     "php": "^7.1.3",
     "ext-couchbase": ">=2.3.2",
-    "illuminate/support": "5.6.*",
-    "illuminate/config": "5.6.*",
-    "illuminate/console": "5.6.*",
-    "illuminate/events": "5.6.*",
-    "illuminate/cache": "5.6.*",
-    "illuminate/session": "5.6.*",
-    "illuminate/database": "5.6.*",
-    "illuminate/encryption": "5.6.*",
-    "illuminate/queue": "5.6.*",
-    "illuminate/contracts": "5.6.*",
-    "illuminate/container": "5.6.*"
+    "illuminate/support": "5.8.*",
+    "illuminate/config": "5.8.*",
+    "illuminate/console": "5.8.*",
+    "illuminate/events": "5.8.*",
+    "illuminate/cache": "5.8.*",
+    "illuminate/session": "5.8.*",
+    "illuminate/database": "5.8.*",
+    "illuminate/encryption": "5.8.*",
+    "illuminate/queue": "5.8.*",
+    "illuminate/contracts": "5.8.*",
+    "illuminate/container": "5.8.*"
   },
   "require-dev": {
     "symfony/framework-bundle": "^4.0",
@@ -42,9 +46,9 @@
     "friendsofphp/php-cs-fixer": "^2.0"
   },
   "autoload": {
-    "psr-4": {
-      "Ytake\\LaravelCouchbase\\": "src"
-    },
+    "classmap": [
+      "src/"
+    ],
     "files": [
       "src/transfer.php"
     ]
@@ -72,7 +76,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Ytake\\LaravelCouchbase\\CouchbaseServiceProvider",
+        "Tuda\\LaravelCouchbase\\Eloquent\\CouchbaseServiceProvider",
         "Ytake\\LaravelCouchbase\\ConsoleServiceProvider"
       ]
     }
