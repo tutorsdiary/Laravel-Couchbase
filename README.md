@@ -18,9 +18,11 @@ cache, session, database, queue extension package
 
 ## Notice 
 Supported Auto-Discovery, Design Document, Cache Lock (Laravel5.5)
+Supported Eloquent(Alpha)
 
 | Laravel version | Laravel-Couchbase version | ext-couchbase |
 | ------------- | ------------- | ------------------|
+| Laravel 5.8 | ^1.2 | >=2.3.2 |
 | Laravel 5.6 | ^1.1 | >=2.3.2 |
 | Laravel 5.5 | ^1.0 | >=2.3.2 |
 | Laravel 5.4 | ^0.7 | ^2.2.2 |
