@@ -80,13 +80,13 @@ class CouchbaseStore extends TaggableStore implements Store
      *
      * @param string|array $key
      * @param mixed        $value
-     * @param int          $minutes
+     * @param int          $seconds
      *
      * @return bool
      */
-    public function add($key, $value, $minutes = 0): bool
+    public function add($key, $value, $seconds = 0): bool
     {
-        $options = ($minutes === 0) ? [] : ['expiry' => ($minutes * 60)];
+        $options = ($seconds === 0) ? [] : ['expiry' => $seconds];
         try {
             $this->bucket->insert($this->resolveKey($key), $value, $options);
 
@@ -99,9 +99,9 @@ class CouchbaseStore extends TaggableStore implements Store
     /**
      * {@inheritdoc}
      */
-    public function put($key, $value, $minutes)
+    public function put($key, $value, $seconds)
     {
-        $this->bucket->upsert($this->resolveKey($key), $value, ['expiry' => $minutes * 60]);
+        $this->bucket->upsert($this->resolveKey($key), $value, ['expiry' => $seconds]);
     }
 
     /**
@@ -159,6 +159,8 @@ class CouchbaseStore extends TaggableStore implements Store
         if (isset($result['_'])) {
             throw new FlushException($result);
         }
+
+        return true;
     }
 
     /**
