@@ -1422,24 +1422,6 @@ abstract class Model extends BaseModel
     }
 
     /**
-     * Return a timestamp as unix timestamp.
-     *
-     * @param  mixed  $value
-     * @return int
-     */
-    protected function asTimestamp($value)
-    {
-        $timestamp = parent::asTimestamp($value);
-
-        // microseconds timestamps (support for java timestamps)
-        if (abs($timestamp) < 2 ** 31) {
-            $timestamp *= 1000;
-        }
-
-        return $timestamp;
-    }
-
-    /**
      * Define an embedded one-to-many relationship.
      *
      * @param string $related
