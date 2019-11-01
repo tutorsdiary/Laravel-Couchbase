@@ -13,9 +13,9 @@ tools:
     sensiolabs_security_checker: true
     php_code_sniffer:
         config:
-            standard: "PSR2"
+            standard: "PSR4"
     php_cs_fixer:
-        config: { level: psr2 }
+        config: { level: psr4 }
     external_code_coverage:
         timeout: 600    # Timeout in seconds.
         runs: 2

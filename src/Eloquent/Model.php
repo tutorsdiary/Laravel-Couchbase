@@ -998,7 +998,7 @@ abstract class Model extends BaseModel
                 $attributes[$key] = $attributes[$key]->format($format);
                 // If format is timestamp then casting to integer
                 if ($format == 'U') {
-                    $attributes[$key] = (int) $attributes[$key];
+                    $attributes[$key] = (int) $attributes[$key] * 1000;
                 }
             }
         }
@@ -1419,24 +1419,6 @@ abstract class Model extends BaseModel
         }
 
         return parent::asDateTime($value);
-    }
-
-    /**
-     * Return a timestamp as unix timestamp.
-     *
-     * @param  mixed  $value
-     * @return int
-     */
-    protected function asTimestamp($value)
-    {
-        $timestamp = parent::asTimestamp($value);
-
-        // microseconds timestamps (support for java timestamps)
-        if (abs($timestamp) < 2 ** 31) {
-            $timestamp *= 1000;
-        }
-
-        return $timestamp;
     }
 
     /**
