@@ -252,7 +252,7 @@ class CouchbaseConnection extends Connection
      *
      * @return QueryBuilder
      */
-    public function table($table)
+    public function table($table, $as = null)
     {
         return $this->bucket($table)->query()->from($table);
     }

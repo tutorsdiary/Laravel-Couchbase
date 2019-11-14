@@ -89,10 +89,11 @@ class CouchbaseConnection extends \Ytake\LaravelCouchbase\Database\CouchbaseConn
 
     /**
      * @param string $table
+     * @param string $as
      * @return Builder|\Ytake\LaravelCouchbase\Query\Builder
      * @throws \Exception
      */
-    public function table($table)
+    public function table($table, $as = null)
     {
         return $this->bucket($table)->query();
     }
